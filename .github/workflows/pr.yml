@@ -15,9 +15,7 @@ jobs:
           envkey_POSTGRES_DB: "myRepertory_test"
           envkey_DATABASE_URL: "postgres://postgres:123456@db:5432/myRepertory_test"
           file_name: .env.test
-      - name: Create db
-        run: docker-compose -f docker-compose-test.yml run node_app_my_repertory-test npx prisma migrate dev
       - name: Run Tests
-        run: docker-compose npm run test
+        run: docker-compose -f docker-compose-test.yml run node_app_my_repertory-test npx prisma migrate dev npm run test
       - name: Build
         run: npm i && npm run build
