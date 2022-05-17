@@ -34,7 +34,7 @@ describe("Unit Test Authentication Services", () => {
 
     expect(async () => {
       await authService.signIn(user);
-    }).rejects.toEqual(unauthorizedError("User not found"));
+    }).rejects.toEqual(unauthorizedError("Invalid credentials"));
   });
   it("should throw unauthorizedError when logging in with invalid password", async () => {
     const user = await createUser();
