@@ -4,12 +4,16 @@ services:
     image: postgres
     container_name: db
     restart: always
+    ports:
+      - 2345:5432
     env_file:
       - .env.test
 
   node_app_my_repertory-test:
     container_name: node_app_my_repertory-test
     build: .
+    ports:
+      - 5000:5000
     env_file:
       - .env.test
     depends_on:
