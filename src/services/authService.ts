@@ -30,12 +30,12 @@ async function signIn(loginData: CreateUserData) {
   return token;
 }
 
-async function findById(id: number) {
+/* async function findById(id: number) {
   const user = await authRepository.findById(id);
   if (!user) throw notFoundError("User not found");
 
   return user;
-}
+} */
 
 async function getUserOrFail(loginData: CreateUserData) {
   const user = await authRepository.findByEmail(loginData.email);
@@ -50,5 +50,6 @@ async function getUserOrFail(loginData: CreateUserData) {
 export default {
   signUp,
   signIn,
-  findById,
+  /* findById, */
+  getUserOrFail,
 };
