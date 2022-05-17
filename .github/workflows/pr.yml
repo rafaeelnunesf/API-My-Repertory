@@ -14,7 +14,7 @@ jobs:
           envkey_POSTGRES_PASSWORD: "123456"
           envkey_POSTGRES_DB: "myRepertory_test"
           envkey_DATABASE_URL: "postgres://postgres:123456@db:2345/myRepertory_test"
-          file_name: .env
+          file_name: .env.test
       - name: Run Tests
         run: docker-compose -f docker-compose-test.yml run node_app_my_repertory-test npm run test
       - name: Build
