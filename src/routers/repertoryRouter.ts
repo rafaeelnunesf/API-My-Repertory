@@ -9,5 +9,15 @@ repertoryRouter.post(
   tokenValidationMiddleware,
   repertoryController.postRepertory
 );
+repertoryRouter.get(
+  "/repertory/:repertoryId",
+  tokenValidationMiddleware,
+  repertoryController.getMusics
+);
+repertoryRouter.get(
+  "/repertory",
+  tokenValidationMiddleware,
+  repertoryController.getUserRepertories
+);
 
 export default repertoryRouter;
