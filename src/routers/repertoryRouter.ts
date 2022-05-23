@@ -1,7 +1,8 @@
 import { Router } from "express";
 import repertoryController from "../controllers/repertoryController.js";
 import tokenValidationMiddleware from "../middlewares/tokenValidationMiddleware.js";
-
+import { musicSchema } from "./../schemas/musicSchema.js";
+import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware.js";
 const repertoryRouter = Router();
 
 repertoryRouter.post(
@@ -18,6 +19,12 @@ repertoryRouter.get(
   "/repertory",
   tokenValidationMiddleware,
   repertoryController.getUserRepertories
+);
+repertoryRouter.post(
+  "/repertory/:repertoryId/addMusic",
+  tokenValidationMiddleware,
+  validateSchemaMiddleware(musicSchema),
+  repertoryController.postMusic
 );
 
 export default repertoryRouter;
