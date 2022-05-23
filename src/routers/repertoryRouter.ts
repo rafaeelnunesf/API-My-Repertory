@@ -31,5 +31,10 @@ repertoryRouter.delete(
   tokenValidationMiddleware,
   repertoryController.deleteMusic
 );
+repertoryRouter.patch(
+  "/repertory/:repertoryId/musics/:musicId",
+  tokenValidationMiddleware,
+  repertoryController.updateMusic
+);
 
 export default repertoryRouter;

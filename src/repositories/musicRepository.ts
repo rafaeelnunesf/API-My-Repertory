@@ -29,6 +29,7 @@ async function getTab(name: string, author: string) {
     const response = await axios.get(getChordsApi(author, name));
     const $ = cheerio.load(response.data);
     const tab = $("pre").text();
+    console.log(tab);
     return tab;
   } catch (error) {
     // console.log(error);

@@ -68,10 +68,22 @@ async function deleteMusic({ musicId, repertoryId }: MusicRepertoryData) {
     },
   });
 }
+async function updateMusic({ musicId, repertoryId }: MusicRepertoryData) {
+  return prisma.musicRepertory.update({
+    where: {
+      repertoryId_musicId: { repertoryId, musicId },
+    },
+    data: {
+      lastTimePlayed: { set: new Date() },
+      timesplayed: { increment: 1 },
+    },
+  });
+}
 export default {
   insert,
   findByUserId,
   findMusicsByRepertoryId,
   addMusicToRepertory,
   deleteMusic,
+  updateMusic,
 };

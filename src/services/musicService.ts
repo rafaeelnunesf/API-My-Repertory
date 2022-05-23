@@ -1,6 +1,8 @@
 import { Music } from "@prisma/client";
 import musicRepository from "../repositories/musicRepository.js";
+import repertoryRepository from "../repositories/repertoryRepository.js";
 import { notFoundError } from "../utils/errorUtils.js";
+import { MusicRepertoryData } from "./repertoryService.js";
 
 export type CreateMusicData = Omit<Music, "id">;
 
@@ -16,5 +18,7 @@ async function createAndReturn(name: string, author: string) {
 
   return await findByNameAndAuthor(name, author);
 }
-
-export default { findByNameAndAuthor, createAndReturn };
+async function updateMusic({ musicId, repertoryId }: MusicRepertoryData) {
+  return await repertoryRepository.updateMusic({ musicId, repertoryId });
+}
+export default { findByNameAndAuthor, createAndReturn, updateMusic };
