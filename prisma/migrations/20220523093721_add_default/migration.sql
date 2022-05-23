@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "musicRepertory" ALTER COLUMN "lastTimePlayed" SET DEFAULT CURRENT_TIMESTAMP,
+ALTER COLUMN "timesplayed" SET DEFAULT 0;

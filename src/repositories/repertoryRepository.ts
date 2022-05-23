@@ -1,5 +1,9 @@
+import dayjs from "dayjs";
 import { prisma } from "../database.js";
-import { RepertoryData } from "../services/repertoryService.js";
+import {
+  RepertoryData,
+  MusicRepertoryData,
+} from "../services/repertoryService.js";
 
 async function insert(repertory: RepertoryData) {
   return prisma.repertory.create({
@@ -51,4 +55,14 @@ async function findMusicsByRepertoryId(repertoryId: number) {
     },
   });
 }
-export default { insert, findByUserId, findMusicsByRepertoryId };
+async function addMusicToRepertory(data: MusicRepertoryData) {
+  return prisma.musicRepertory.create({
+    data,
+  });
+}
+export default {
+  insert,
+  findByUserId,
+  findMusicsByRepertoryId,
+  addMusicToRepertory,
+};

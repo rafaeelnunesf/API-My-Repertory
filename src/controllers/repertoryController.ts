@@ -23,13 +23,18 @@ async function getMusics(req: Request, res: Response) {
 }
 
 async function postMusic(req: Request, res: Response) {
-  const { repertoryId } = req.params;
+  const repertoryId = parseInt(req.params.repertoryId);
   const { name, author } = req.body;
+  const musicName = name.toLowerCase().replace(/\s/g, "-");
+  const musicAuthor = author.toLowerCase().replace(/\s/g, "-");
 
-  const music = await musicService.findByNameAndAuthor(name, author);
-  if (!music) await musicService.create(name, author);
+  let music = await musicService.findByNameAndAuthor(musicName, musicAuthor);
+  if (!music) {
+    music = await musicService.createAndReturn(musicName, musicAuthor);
+  }
 
-  console.log(music);
+  await repertoryService.addMusic({ repertoryId, musicId: music.id });
+
   res.sendStatus(201);
 }
 

@@ -1,8 +1,12 @@
-import { Repertory } from "@prisma/client";
+import { Repertory, MusicRepertory } from "@prisma/client";
 import { repertoryRepository } from "../repositories/index.js";
 import { notFoundError } from "../utils/errorUtils.js";
 
 export type RepertoryData = Omit<Repertory, "id">;
+export type MusicRepertoryData = Omit<
+  MusicRepertory,
+  "lastTimePlayed" | "timesplayed"
+>;
 
 async function createRepertory(repertory: RepertoryData) {
   return await repertoryRepository.insert(repertory);
@@ -22,4 +26,8 @@ async function getMusics(repertoryId: number) {
   return musics;
 }
 
-export default { createRepertory, getUserRepertories, getMusics };
+async function addMusic(data: MusicRepertoryData) {
+  return await repertoryRepository.addMusicToRepertory(data);
+}
+
+export default { createRepertory, getUserRepertories, getMusics, addMusic };

@@ -23,6 +23,8 @@ const getChordsApi = (author: string, name: string) =>
   `https://www.cifraclub.com.br/${author}/${name}/imprimir.html`;
 
 async function getTab(name: string, author: string) {
+  console.log("name :>> ", name);
+  console.log("author :>> ", author);
   try {
     const response = await axios.get(getChordsApi(author, name));
     const $ = cheerio.load(response.data);

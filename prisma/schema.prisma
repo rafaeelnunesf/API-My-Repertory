@@ -48,8 +48,8 @@ model MusicRepertory {
   musicId Int
   music   Music @relation(fields: [musicId], references: [id])
 
-  lastTimePlayed DateTime
-  timesplayed    Int
+  lastTimePlayed DateTime @default(now())
+  timesplayed    Int      @default(0)
 
 
   @@id([repertoryId, musicId])
