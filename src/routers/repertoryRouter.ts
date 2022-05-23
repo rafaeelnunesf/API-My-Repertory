@@ -26,5 +26,10 @@ repertoryRouter.post(
   validateSchemaMiddleware(musicSchema),
   repertoryController.postMusic
 );
+repertoryRouter.delete(
+  "/repertory/:repertoryId/musics/:musicId",
+  tokenValidationMiddleware,
+  repertoryController.deleteMusic
+);
 
 export default repertoryRouter;

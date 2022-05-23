@@ -46,6 +46,7 @@ async function findMusicsByRepertoryId(repertoryId: number) {
       timesplayed: true,
       music: {
         select: {
+          id: true,
           name: true,
           author: true,
           tab: true,
@@ -60,9 +61,17 @@ async function addMusicToRepertory(data: MusicRepertoryData) {
     data,
   });
 }
+async function deleteMusic({ musicId, repertoryId }: MusicRepertoryData) {
+  return prisma.musicRepertory.delete({
+    where: {
+      repertoryId_musicId: { repertoryId, musicId },
+    },
+  });
+}
 export default {
   insert,
   findByUserId,
   findMusicsByRepertoryId,
   addMusicToRepertory,
+  deleteMusic,
 };

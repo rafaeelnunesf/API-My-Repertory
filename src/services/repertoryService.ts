@@ -30,4 +30,14 @@ async function addMusic(data: MusicRepertoryData) {
   return await repertoryRepository.addMusicToRepertory(data);
 }
 
-export default { createRepertory, getUserRepertories, getMusics, addMusic };
+async function deleteMusic(data: MusicRepertoryData) {
+  await repertoryRepository.deleteMusic(data);
+}
+
+export default {
+  createRepertory,
+  getUserRepertories,
+  getMusics,
+  addMusic,
+  deleteMusic,
+};

@@ -37,10 +37,19 @@ async function postMusic(req: Request, res: Response) {
 
   res.sendStatus(201);
 }
+async function deleteMusic(req: Request, res: Response) {
+  const { repertoryId, musicId } = req.params;
+  await repertoryService.deleteMusic({
+    repertoryId: parseInt(repertoryId),
+    musicId: parseInt(musicId),
+  });
 
+  res.sendStatus(200);
+}
 export default {
   postRepertory,
   getUserRepertories,
   getMusics,
   postMusic,
+  deleteMusic,
 };
