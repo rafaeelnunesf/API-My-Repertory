@@ -6,10 +6,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
     "dev-migrate": "npx prisma migrate dev && nodemon src/server.ts",
     "dev-migrate-test": "npx dotenv -e .env.test prisma migrate dev && nodemon src/server.ts",
-    "start": "node dist/server.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i",
     "test-deploy": "NODE_OPTIONS=--experimental-vm-modules jest -i",
     "test-coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage"
@@ -52,7 +52,6 @@
     "express-async-errors": "^3.1.1",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^8.7.3",
     "prisma": "^3.14.0"
   }
 }
