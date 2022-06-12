@@ -34,12 +34,61 @@ Connect with me at [LinkedIn](https://www.linkedin.com/in/rafaeelnunesf).
 
 ## Built With
 
-- [NodeJS](https://nodejs.org/) - Enviroment
-- [ExpressJS](https://expressjs.com/) - Framework
-- [Typescript](https://www.typescriptlang.org/) - Language
-- [Jest](https://jestjs.io/) - Tests
-- [Docker](https://www.docker.com/) - Containerization technology
-- [Postgres](https://www.postgresql.org/) - Database
-- [Prisma](https://www.prisma.io/) - ORM
-- [ESlint](https://eslint.org/) - Linter
-- [Prettier](https://prettier.io/) - Code Formatter
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
+
+## How to run for development
+
+1. Clone this repository
+2. Install all dependencies
+
+```bash
+npm i
+```
+
+3. Create a PostgreSQL database with whatever name you want
+4. Configure the `.env` file using the `.env.example` file (see "Running application locally or inside docker section" for details)
+5. Run all migrations
+
+```bash
+npm run dev-migration
+```
+
+6. Run the back-end in a development environment:
+
+```bash
+npm run dev
+```
+
+## How to run tests
+
+1. Follow the steps in the last section
+1. Configure the `.env.test` file using the `.env.example` file (see "Running application locally or inside docker" section for details)
+1. Run all migrations
+
+```bash
+npm run dev-migrate-test
+```
+
+3. Run test:
+   (locally)
+
+```bash
+npm run test
+```
+
+## Building and starting for production
+
+```bash
+npm run build
+npm start
+```
+
+If you want to see in detail the whole part of how the frontend was built, take a look at this [repository!](https://github.com/rafaeelnunesf/My-Repertory)
