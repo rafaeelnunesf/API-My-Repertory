@@ -21,3 +21,5 @@ jobs:
         run: docker-compose -f docker-compose-test.yml run node_app_my_repertory-test npm run test
       - name: Build
         run: npm i && npm run build
+        
+        
